@@ -5,12 +5,12 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  console.log("user", user);
 
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
       if (token) {
-        // Verify token and fetch user data
         try {
           const response = await fetch("/api/users/me", {
             headers: {

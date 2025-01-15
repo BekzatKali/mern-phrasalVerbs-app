@@ -16,29 +16,41 @@ const Header = () => {
         </Link>
         <ul className="flex justify-between items-center gap-4">
           {user ? (
-            // Show user-specific navigation when logged in
-            <>
-              {location.pathname === "/dashboard" ? (
-                ""
-              ) : (
+            user.isAdmin ? (
+              // If the user is an admin
+              <>
                 <li>
-                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/admin-dashboard">See All Users</Link>
                 </li>
-              )}
-              {/* <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li> */}
-              <li>
-                <button
-                  onClick={logout}
-                  className="bg-red-500 text-white px-4 py-2 rounded"
-                >
-                  Log Out
-                </button>
-              </li>
-            </>
+                <li>
+                  <button
+                    onClick={logout}
+                    className="bg-red-500 text-white px-4 py-2 rounded"
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              // If the user is not an admin
+              <>
+                {location.pathname !== "/dashboard" && (
+                  <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                  </li>
+                )}
+                <li>
+                  <button
+                    onClick={logout}
+                    className="bg-red-500 text-white px-4 py-2 rounded"
+                  >
+                    Log Out
+                  </button>
+                </li>
+              </>
+            )
           ) : (
-            // Show Sign In and Sign Up when not logged in
+            // If no user is logged in
             <>
               <li>
                 <Link to="/login">Sign In</Link>

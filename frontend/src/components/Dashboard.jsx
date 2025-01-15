@@ -89,7 +89,7 @@ const Dashboard = () => {
         <div className="max-w-[50%] w-full">
           <PhrasalVerbForm onSubmit={handleCreate} />
         </div>
-        <p className="text-xl mb-6">Here are your phrasal verbs:</p>
+        <p className="text-xl mb-6">Here are your phrasal verbs</p>
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-[90%]">
           {phrasalVerbs.length > 0 &&
             phrasalVerbs.map((verb) => (

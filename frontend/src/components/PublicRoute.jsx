@@ -9,7 +9,17 @@ const PublicRoute = () => {
     return <div>Loading...</div>;
   }
 
-  return user ? <Navigate to="/dashboard" /> : <Outlet />;
+  // Redirect based on user role
+  if (user) {
+    return user.isAdmin ? (
+      <Navigate to="/admin-dashboard" replace />
+    ) : (
+      <Navigate to="/dashboard" replace />
+    );
+  }
+
+  // If no user, render public routes
+  return <Outlet />;
 };
 
 export default PublicRoute;

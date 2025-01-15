@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import phrasalVerbRoutes from "../backend/routes/phrasalVerbRoutes.js";
 import userRoutes from "../backend/routes/userRoutes.js";
+import adminRoutes from "../backend/routes/adminRoutes.js";
 import { errorHandler } from "./middleware/errorMiddleware.js";
 
 dotenv.config();
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use("/api/phrasal-verbs", phrasalVerbRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/admin", adminRoutes);
 
 connectDB();
 

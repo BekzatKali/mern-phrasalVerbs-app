@@ -20,9 +20,15 @@ const Login = () => {
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
+
       if (response.ok) {
         login(data, data.token);
-        navigate("/dashboard");
+        // Check if the user is an admin and navigate accordingly
+        if (data.isAdmin) {
+          navigate("/admin-dashboard");
+        } else {
+          navigate("/dashboard");
+        }
       } else {
         setError(data.message || "Invalid email or password");
       }
@@ -32,10 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="flex flex-col gap-4 justify-center items-center"
-      style={{ height: "calc(100vh - 68px)" }}
-    >
+    <div className="flex flex-col gap-4 justify-center items-center pt-16">
       <h2 className="text-3xl font-bold">Login</h2>
       {error && <p className="text-red-500">{error}</p>}
       <form

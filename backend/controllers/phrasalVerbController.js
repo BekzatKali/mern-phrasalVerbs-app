@@ -1,4 +1,4 @@
-import PhrasalVerb from "../models/phrasalverbModel.js";
+import PhrasalVerb from "../models/PhrasalVerbModel.js";
 import mongoose from "mongoose";
 
 export const getPhrasalVerbs = async (req, res, next) => {
