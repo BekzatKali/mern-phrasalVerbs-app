@@ -16,7 +16,7 @@ const Header = () => {
         </Link>
         <ul className="flex justify-between items-center gap-4">
           {user ? (
-            user.isAdmin ? (
+            user.isAdmin && location.pathname == "/" ? (
               // If the user is an admin
               <>
                 <li>

@@ -28,7 +28,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 justify-center items-center pt-16">
+    <div className="flex flex-col gap-4 justify-center items-center pt-24">
       <h2 className="text-3xl font-bold">Register</h2>
       <form
         className="flex flex-col gap-4 max-w-lg w-full"

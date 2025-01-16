@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 justify-center items-center pt-16">
+    <div className="flex flex-col gap-4 justify-center items-center pt-24">
       <h2 className="text-3xl font-bold">Login</h2>
       {error && <p className="text-red-500">{error}</p>}
       <form
