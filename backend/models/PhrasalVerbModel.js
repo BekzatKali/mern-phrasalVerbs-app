@@ -20,6 +20,7 @@ const PhrasalVerbSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+// 7:40 - started
 
 const PhrasalVerb = mongoose.model("PhrasalVerb", PhrasalVerbSchema);
 

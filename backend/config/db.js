@@ -9,3 +9,5 @@ export const connectDB = async () => {
     process.exit(1);
   }
 };
+
+// 7:15 started

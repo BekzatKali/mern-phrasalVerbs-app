@@ -14,6 +14,10 @@ export const getAllUsers = async (req, res, next) => {
 
 export const getPhrasalVerbsOfUser = async (req, res, next) => {
   const { id } = req.params;
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    res.status(400);
+    return next(new Error("Invalid user ID format"));
+  }
   try {
     const phrasalVerbs = await PhrasalVerb.find({ user: id });
     res.status(200).json(phrasalVerbs);
@@ -25,14 +29,16 @@ export const getPhrasalVerbsOfUser = async (req, res, next) => {
 export const deleteUser = async (req, res, next) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ message: "Invalid user ID format" });
+    res.status(400);
+    return next(new Error("Invalid user ID format"));
   }
 
   try {
     const deletedUser = await User.findByIdAndDelete(id);
 
     if (!deletedUser) {
-      return res.status(404).json({ message: "User not found" });
+      res.status(404);
+      return next(new Error("User not found"));
     }
 
     res.status(200).json({ message: "User was deleted" });
