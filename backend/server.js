@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Allows us to accept JSON data in the req.body
+// This allows us to accept JSON data in the req.body
 app.use(express.json());
 
 app.use("/api/phrasal-verbs", phrasalVerbRoutes);
