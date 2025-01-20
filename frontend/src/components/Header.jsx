@@ -12,7 +12,7 @@ const Header = () => {
     <header className="bg-slate-100 shadow">
       <div className="container mx-auto p-4 flex justify-between items-center">
         <Link to="/">
-          <h1 className="text-3xl font-bold">PhrasalVerbs</h1>
+          <h1 className="text-3xl font-bold italic">PhrasalVerbsApp</h1>
         </Link>
         <ul className="flex justify-between items-center gap-4">
           {user ? (
